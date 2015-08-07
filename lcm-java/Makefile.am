@@ -11,11 +11,11 @@ xmlgraphics_extract = $(JAVAROOT)/org/apache/xmlgraphics/java2d/TextHandler.clas
 
 .PHONY classfiles: classdist_noinst.stamp classnoinst.stamp
 
-$(JARFILE): $(jchart2d_jar) $(jide_extract) $(xmlgraphics_extract) classfiles
+$(JARFILE): $(jide_extract) $(xmlgraphics_extract) classfiles
 	rm -f $(JARFILE)
 	$(JAR) cf $(JARFILE) -C $(JAVAROOT) .
 
-jar_DATA = $(JARFILE) $(jchart2d_jar)
+jar_DATA = $(JARFILE)
 
 $(jide_extract): $(jide_jar)
 	cd $(JAVAROOT) && $(JAR) xf ../$(jide_jar)
